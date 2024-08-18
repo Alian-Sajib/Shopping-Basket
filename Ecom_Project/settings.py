@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap4",
     'App_login',
     'App_shop',
+    'App_order',
 ]
 
 # bootstrap, bootstrap3, bootstrap4 and uni-form
