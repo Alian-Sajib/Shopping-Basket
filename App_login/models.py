@@ -89,15 +89,23 @@ class Profile(models.Model):
 
     """Check all fields are filled in """
 
+    """ The f.name variable is used in the list comprehension [f.name for f in self._meta.get_field()] 
+        to extract the names of all fields in the model. It is then used in the is_fully_filled method to 
+        iterate over the field names and access their values."""
+
     def is_fully_filled(self):
-        fields_name = [f.name for f in self._meta.get_field()]
+        fields_name = [f.name for f in self._meta.get_fields()]
         for field in fields_name:
             if getattr(self, field) == None or getattr(self, field) == "":
                 return False
         return True
 
 
+"""use fields_name instead of field_names"""
+
 """when a user is created then a profile of that user created"""
+
+
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
@@ -105,6 +113,8 @@ def create_profile(sender, instance, created, **kwargs):
 
 
 """change in user model also effect in profile model"""
+
+
 @receiver(post_save, sender=User)
 def save_profile(sender, instance, **kwargs):
     instance.profile.save()  # "profile" name same as related name

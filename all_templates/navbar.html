@@ -1,6 +1,6 @@
 {% load cart_tag %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
   <div class="container">
     <a class="navbar-brand" href="{% url 'App_shop:home' %}">Shopping Basket</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"
@@ -24,8 +24,8 @@
             aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie"></i>
             {{request.user.profile.username}}</a>
           <div class="dropdown-menu" aria-labelledby="nabbarDropdown">
-            <a class="dropdown-item" href="#">Profile</a>
-            <a class="dropdown-item" href="#">Orders</a>
+            <a class="dropdown-item" href="{% url 'App_login:profile' %}">Profile</a>
+            <a class="dropdown-item" href="{% url 'App_payment:orders' %}">Orders</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{% url 'App_login:logout' %}">Logout</a>
           </div>

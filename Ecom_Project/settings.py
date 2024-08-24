@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'App_login',
     'App_shop',
     'App_order',
+    'App_payment',
 ]
 
 # bootstrap, bootstrap3, bootstrap4 and uni-form
